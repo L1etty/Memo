@@ -10,8 +10,21 @@ header{
 	height: 80px;
 	background-color: #dddddd;
 }
+
+.contents{
+	height: 500px;
+}
+
 .contents > .join-box{
 	width: 300px;
+}
+
+.contents > .login-box{
+	width: 200px;
+}
+
+.contents > .login-box > a {
+	text-decoration: underline;
 }
 
 footer{

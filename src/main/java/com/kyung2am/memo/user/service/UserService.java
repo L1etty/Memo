@@ -1,8 +1,11 @@
 package com.kyung2am.memo.user.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kyung2am.memo.common.EncryptUtils;
 import com.kyung2am.memo.user.domain.User;
 import com.kyung2am.memo.user.repository.UserRepository;
 
@@ -20,14 +23,16 @@ public class UserService {
 			,String email
 			) {
 		
-		User user = User.builder()
-				.loginId(loginId)
-				.password(password)
-				.name(name)
-				.email(email)
-				.build();
+		// password 암호화
+		String ecryptPassword = EncryptUtils.md5(password);
 		
-		user = userRepository.save(user);
+		
+		User user = userRepository.save(User.builder()
+				.loginId(loginId)
+				.password(ecryptPassword)
+				.name(name)	
+				.email(email)
+				.build());
 		
 		int count;
 		if(user != null) {
@@ -37,6 +42,21 @@ public class UserService {
 		}
 		
 		return count;
+	}
+	
+	public User getUser(String loginId, String password){
+		
+		String ecryptPassword = EncryptUtils.md5(password);
+		
+		List<User> userList = userRepository.findByLoginIdAndPassword(loginId, ecryptPassword);
+		
+		// 비워진 경우
+		if(userList.isEmpty()) {
+			return null;
+		}else {
+			return userList.get(0);
+		}
+		
 	}
 	
 }

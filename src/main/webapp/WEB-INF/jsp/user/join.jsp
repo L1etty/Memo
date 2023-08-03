@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,8 @@
 </head>
 <body>
 	<div id="wrap">
-		<%@include file="/header.jsp" %>
-		<section class="contents d-flex justify-content-center">
+		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
+		<section class="contents d-flex justify-content-center align-items-center">
 			<div class="join-box my-4">
 				<h1 class="text-center">회원가입</h1>
 				<input type="text" class="form-control mt-2" placeholder="아이디" id="idInput">
@@ -23,11 +24,7 @@
 				
 			</div>
 		</section>
-		<footer class="d-flex align-items-center justify-content-center">
-			<div class="text-secondary">
-				Copyright © Kyung2am 2023
-			</div>
-		</footer>
+		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
 		
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>		
