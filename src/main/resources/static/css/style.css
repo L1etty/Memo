@@ -11,9 +11,6 @@ header{
 	background-color: #dddddd;
 }
 
-.contents{
-	height: 500px;
-}
 
 .contents > .join-box{
 	width: 300px;
@@ -25,6 +22,10 @@ header{
 
 .contents > .login-box > a {
 	text-decoration: underline;
+}
+
+.contents > .contents-box{
+	width: 700px;
 }
 
 footer{
