@@ -25,7 +25,7 @@ public class PostRestContoller {
 	public Map<String, String> memoCreate(
 				@RequestParam("title") String title
 				,@RequestParam("content") String content
-				,@RequestParam("file") MultipartFile file
+				,@RequestParam(value = "file", required = false) MultipartFile file
 				,HttpSession session
 			) {
 		
