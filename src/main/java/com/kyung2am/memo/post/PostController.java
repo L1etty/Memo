@@ -23,6 +23,7 @@ public class PostController {
 	private PostService postService;
 	
 	@GetMapping("/list-view")
+	
 	public String list(Model model, HttpSession session) {
 		
 		int userId = (Integer)session.getAttribute("userId");

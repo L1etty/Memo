@@ -11,12 +11,14 @@
 			`userId`
 			,`title`
 			,`content`
+			,`imagePath`
   		)
   		VALUE
   		(
   			#{userId}
   			,#{title}
   			,#{content}
+  			,#{imagePath}
   		)
   	</insert>
   	<select id="selectPostList" resultType="com.kyung2am.memo.post.domain.Post">
